@@ -29,6 +29,7 @@ int main()
 
     // Imprimir a média
     printf("\nMedia dos elementos do array: %.2f\n\n", media);
+    // teste
 
     return 0;
 }
