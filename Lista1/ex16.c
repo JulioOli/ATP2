@@ -19,7 +19,7 @@ int main()
     printf("Digite 10 caractéres: ");
     for (int i = 0; i < 10; i++)
     {
-        fflush(stdin);
+        fflush(stdin); // limpa o buffer do teclado
         scanf("%c", &ch);
         array[i] = ch;
         printf("(%d %c)", i, array[i]);
