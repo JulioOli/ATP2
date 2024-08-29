@@ -16,6 +16,9 @@ int main()
         scanf("%d", &array[i]);
     }
 
+    maior = array[0];
+    menor = array[0];
+
     for (int i = 0; i < 10; i++)
     {
         if (array[i] > maior)
