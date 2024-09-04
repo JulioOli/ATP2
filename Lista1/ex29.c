@@ -1,6 +1,7 @@
 /*Escreva um programa em C que use um array de ponteiros para
 armazenar e imprimir 5 strings.*/
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -12,34 +13,38 @@ int main()
 
     for (int i = 0; i < 5; i++)
     {
-        printf("Digite a string %d: ", i + 1);
-        fgets(string, sizeof(string), stdin);
+        printf("Digite a string %d: ", i + 1); // pede a string e soma 1 no total pro char de nova linha '\0'
+        fgets(string, sizeof(string), stdin);  // lê a string
+
+        // essa func compara a primera string com a segunda e calcula
+        // o comprimento da primeira tirando os elementos da segunda
+        string[strcspn(string, "\n")] = '\0';
 
         // Alocar memória para a string e armazenar no array de ponteiros
         ptr[i] = malloc(strlen(string) + 1); // +1 para o '\0'
-        strcpy(ptr[i], string);
-    }
 
-    for (int i = 0; i < 5; i++)
-    {
-        printf("Digite a string %d: ", i + 1);
-        fgets(string, sizeof(string), stdin);
-
-        // Alocar memória para a string e verificar se malloc foi bem-sucedido
-        ptr[i] = malloc(strlen(string) + 1); // +1 para incluir o caractere nulo '\0'
+        // verificando se o malloc deu erro:
         if (ptr[i] == NULL)
         {
-            printf("Erro de alocação de memória!\n");
-            exit(1); // Sai do programa se malloc falhar
+            printf("Erro de alocação de memória\n\n");
+            exit(1); // fecha o programa
         }
 
-        // Copiar a string para a memória alocada
+        // copia a string para a memória alocada
         strcpy(ptr[i], string);
     }
-    // Imprimindo os arrays de ponteiros:
+
+    // imprimindo os arrays
+    printf("\n");
     for (int i = 0; i < 5; i++)
     {
-        printf("\nString %d: %s", i + 1, ptr[i]);
+        printf("String %d: %s\n", i + 1, ptr[i]);
+    }
+
+    // liberando a memória alocada
+    for (int i = 0; i < 5; i++)
+    {
+        free(ptr[i]);
     }
 
     return 0;
