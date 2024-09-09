@@ -17,18 +17,11 @@ int main()
         fgets(string, sizeof(string), stdin);  // lê a string
 
         // essa func compara a primera string com a segunda e calcula
-        // o comprimento da primeira tirando os elementos da segunda
+        // o comprimento da primeira tirando os elementos da segunda, sendo "string" a primeira e "\n" a segunda
         string[strcspn(string, "\n")] = '\0';
 
         // Alocar memória para a string e armazenar no array de ponteiros
         ptr[i] = malloc(strlen(string) + 1); // +1 para o '\0'
-
-        // verificando se o malloc deu erro:
-        if (ptr[i] == NULL)
-        {
-            printf("Erro de alocação de memória\n\n");
-            exit(1); // fecha o programa
-        }
 
         // copia a string para a memória alocada
         strcpy(ptr[i], string);
