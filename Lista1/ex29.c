@@ -16,10 +16,6 @@ int main()
         printf("Digite a string %d: ", i + 1); // pede a string e soma 1 no total pro char de nova linha '\0'
         fgets(string, sizeof(string), stdin);  // lê a string
 
-        // essa func compara a primera string com a segunda e calcula
-        // o comprimento da primeira tirando os elementos da segunda, sendo "string" a primeira e "\n" a segunda
-        string[strcspn(string, "\n")] = '\0';
-
         // Alocar memória para a string e armazenar no array de ponteiros
         ptr[i] = malloc(strlen(string) + 1); // +1 para o '\0'
 
@@ -34,7 +30,7 @@ int main()
         printf("String %d: %s\n", i + 1, ptr[i]);
     }
 
-    // liberando a memória alocada
+    // liberando a memória alocada no vetor de ponteiros
     for (int i = 0; i < 5; i++)
     {
         free(ptr[i]);
