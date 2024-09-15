@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/iioulos/Documents/ATP2/Lista1",
-      "program": "/home/iioulos/Documents/ATP2/Lista1/build/Debug/outDebug",
+      "cwd": "/home/iioulos/Documents/ATP2/Lista2",
+      "program": "/home/iioulos/Documents/ATP2/Lista2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
